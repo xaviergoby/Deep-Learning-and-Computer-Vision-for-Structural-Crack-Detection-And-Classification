@@ -1,0 +1,8 @@
+*.pyc
+*~
+.idea/*
+__pycache__/*
+*.iml
+*.pyc
+
+
