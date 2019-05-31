@@ -10,8 +10,8 @@ from keras.layers import Conv2D, MaxPooling2D
 from keras.layers import Activation, Dropout, Flatten, Dense
 from keras import backend as K
 import matplotlib.pyplot as plt
-from keras.utils.generic_utils import get_custom_objects
 import xlwt
+from datetime import datetime
 from numpy.random import seed
 seed(1) # Fixing random seed for reproducibility
 
@@ -20,16 +20,16 @@ seed(1) # Fixing random seed for reproducibility
 img_width, img_height = 100, 100
 
 # Relative directory paths
-train_data_dir = 'TextImageClassificationData/Train'
-validation_data_dir = 'TextImageClassificationData/Validation'
+train_data_dir = '../Data/Train'
+validation_data_dir = '../Data/Validation'
 
 # Training & Validation dataset sizes
-nb_train_samples = 499
-nb_validation_samples = 97
+nb_train_samples = 1600
+nb_validation_samples = 800
 
 # Arch hyperparameters
 epochs = 20
-batch_size = 10
+batch_size = 128
 
 
 if K.image_data_format() == 'channels_first':
@@ -41,11 +41,7 @@ else:
 
 model = Sequential()
 
-model.add(Conv2D(16, (3, 3), input_shape=input_shape))
-model.add(Activation('relu'))
-model.add(MaxPooling2D(pool_size=(2, 2)))
-
-model.add(Conv2D(16, (3, 3)))
+model.add(Conv2D(32, (3, 3), input_shape=input_shape))
 model.add(Activation('relu'))
 model.add(MaxPooling2D(pool_size=(2, 2)))
 
@@ -53,7 +49,11 @@ model.add(Conv2D(32, (3, 3)))
 model.add(Activation('relu'))
 model.add(MaxPooling2D(pool_size=(2, 2)))
 
-model.add(Conv2D(32, (3, 3)))
+model.add(Conv2D(64, (3, 3)))
+model.add(Activation('relu'))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+
+model.add(Conv2D(64, (3, 3)))
 model.add(Activation('relu'))
 model.add(MaxPooling2D(pool_size=(2, 2)))
 
@@ -70,8 +70,8 @@ model.add(Dropout(0.5))
 model.add(Dense(16))
 model.add(Activation('elu'))
 model.add(Dropout(0.5))
-model.add(Dense(1))
-model.add(Activation('sigmoid'))
+model.add(Dense(4))
+model.add(Activation('softmax'))
 
 model.compile(loss='categorical_crossentropy',
               optimizer='adam',
@@ -81,39 +81,40 @@ model.compile(loss='categorical_crossentropy',
 #Here I am first rescaling all my images for training. Then performing a bunch of transformations
 #to my images for training <- Data Augmentation
 train_datagen = ImageDataGenerator(
-    rescale=1. / 255,
-    shear_range=0.2,
-    zoom_range=0.2,
-    horizontal_flip=True)
+    # horizontal_flip=True,
+    rescale = 1. / 255,
+    shear_range = 0.2,
+    zoom_range = 0.2)
 
 #Rescaling my images to be used for voldiation. Note that I should NOT augmnet my validaiton images!
 test_datagen = ImageDataGenerator(rescale=1. / 255)
 
 train_generator = train_datagen.flow_from_directory(
     train_data_dir,
-    target_size=(img_width, img_height),
-    batch_size=batch_size,
-    class_mode='binary')
+    target_size = (img_width, img_height),
+    batch_size = batch_size,
+    class_mode = 'categorical')
 
 validation_generator = test_datagen.flow_from_directory(
     validation_data_dir,
-    target_size=(img_width, img_height),
-    batch_size=batch_size,
-    class_mode='binary')
+    target_size = (img_width, img_height),
+    batch_size = batch_size,
+    class_mode = 'categorical')
 
-history=model.fit_generator(
-        train_generator,
-        steps_per_epoch=nb_train_samples // batch_size,
-        epochs=epochs,
-        validation_data=validation_generator,
-        validation_steps=nb_validation_samples // batch_size)
+history = model.fit_generator(
+          # shuffle = True,
+          train_generator,
+          steps_per_epoch = nb_train_samples // batch_size,
+          epochs = epochs,
+          validation_data = validation_generator,
+          validation_steps = nb_validation_samples // batch_size)
 
 
 model.summary()
 
 
-model.save_weights('images_with_and_Without_text.h5')
-model.save('images_with_and_Without_text.h5')
+model.save_weights('../saved_weights/saved_weights_{0}.h5'.format(datetime.today().strftime("%Y-%m-%d")))
+model.save('../trained_models/trained_model_{0}.h5'.format(datetime.today().strftime("%Y-%m-%d")))
 
 ################Plotting Performance: Accuracy and Loss of Trainning and Validation###############
 

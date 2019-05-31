@@ -11,12 +11,13 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-img_path = 'Test/Large/Crack__20180419_13_29_14,846.bmp' # Relative path of an image in the Test folder which you would like to test
-model_path = 'TrainedModel_elu.h5' # The path of the saved (trained) model
+img_path = '../Data/Test/Large/Crack__20180419_13_29_14,846.bmp' # Relative path of an image in the Test folder which you would like to test
+model_path = '../trained_models/TrainedModel_elu.h5' # The path of the saved (trained) model
 classlabelmsgs = ['A large crack is present in the image','A medium crack is present in the image',
                   'No crack is present in the image','A small crack is present in the image']
 classlabels = ['Large','Medium','None','Small']
 model = load_model(model_path)
+
 
 def img_transformer(img_path):
     """

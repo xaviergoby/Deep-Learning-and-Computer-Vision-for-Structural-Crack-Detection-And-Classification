@@ -1,0 +1,26 @@
+{
+  "classification_problem_type": {
+    "categorical": {
+      "num_of_classes": 4,
+      "class_label_names": [
+        "Large Crack",
+        "Medium Crack",
+        "Small Crack",
+        "No Crack"
+      ],
+      "activation_func": "sigmoid",
+      "loss_func": "categorical_crossentropy"
+    },
+    "binary": {
+      "num_of_classes": 2,
+      "class_label_names": [
+        "Crack Present",
+        "Crack Absent"
+      ],
+      "activation_func": "softmax",
+      "loss_func": "binary_crossentropy",
+      "": {}
+    }
+  },
+  "time_format_str": "%Y-%m-%d"
+}
