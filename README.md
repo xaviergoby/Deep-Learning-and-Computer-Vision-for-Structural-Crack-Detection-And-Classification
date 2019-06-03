@@ -1,5 +1,4 @@
-# Incorporating Inductive Bias into Deep Learning: A Perspective from Automated Visual Inspection in Aircraft Maintenance
-
+# Application of Deep Learning (CNN's) to the Detection and Classification of Cracks in an Aircraft Panel
 
 * Conference paper title: *Incorporating Inductive Bias into Deep Learning: A Perspective from Automated Visual Inspection in Aircraft Maintenance, Dresden, Germany*
 
@@ -13,7 +12,7 @@
 
 ## Abstract
 
-Narrow artificial intelligence, commonly referred as ‘weak AI’ in the last
+Narrow artificial intelligence, commonly referred as â€˜weak AIâ€™ in the last
 couple years, has developed due to advances in machine learning (ML), particularly
 deep learning, which has currently the best in-class performance among other
 machine learning algorithms. In the deep learning framework, many natural tasks
@@ -21,7 +20,7 @@ such as object, image, and speech recognition that were impossible in the previo
 decades using classical ML algorithms can now be done by a typical home personal
 computer.
 Deep learning requires a rapid collection of a large amount of data (also known
-as ‘big data’) to create robust model parameters that are able to predict future
+as â€˜big dataâ€™) to create robust model parameters that are able to predict future
 occurrences of certain event. In some domains, large datasets such as the CIFAR-10
 image database and the MNIST handwriting database already exist. However, in
 many other domains such as aircraft visual inspection, such a large dataset of
