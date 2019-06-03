@@ -1,5 +1,7 @@
 # Application of Deep Learning (CNN's) to the Detection and Classification of Cracks in an Aircraft Panel
 
+* ResearchGate Link: https://www.researchgate.net/publication/328334741_Incorporating_Inductive_Bias_into_Deep_Learning_A_Perspective_from_Automated_Visual_Inspection_in_Aircraft_Maintenance
+
 * Conference paper title: *Incorporating Inductive Bias into Deep Learning: A Perspective from Automated Visual Inspection in Aircraft Maintenance, Dresden, Germany*
 
 * Conference name: *10th International Symposium on NDT in Aerospace*
