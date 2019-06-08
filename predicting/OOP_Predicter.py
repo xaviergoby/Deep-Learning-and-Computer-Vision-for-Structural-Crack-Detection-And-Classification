@@ -40,7 +40,9 @@ class PredictionProducer:
         class_probs = self.model.predict(self.img_transformer())
         class_probs_pct = class_probs * 100
         return class_probs_pct
- 
+
+    def display_all_pred_prob_pcts(self):
+        prob_pct = self.make_prediction()
         for pred_label_idx in range(len(self.prob_type["class_label_names"])):
             pred_prob = str(round(prob_pct[0][pred_label_idx], 1))
             print("{0}: {1}%".format(self.prob_type["class_label_names"][pred_label_idx],
@@ -58,7 +60,7 @@ class PredictionProducer:
         print(pred_pct_msg)
         print("\nPercentage probabilities of all class labels:")
         self.display_all_pred_prob_pcts()
-        print("~~~~~~~~~~~~~~erickalovesyou~~~~~~~~~~")
+        print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 
 
 
