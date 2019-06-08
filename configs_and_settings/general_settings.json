@@ -1,3 +1,4 @@
+
 {
   "classification_problem_type": {
     "categorical": {
@@ -5,8 +6,8 @@
       "class_label_names": [
         "Large Crack",
         "Medium Crack",
-        "Small Crack",
-        "No Crack"
+        "No Crack",
+        "Small Crack"
       ],
       "activation_func": "sigmoid",
       "loss_func": "categorical_crossentropy"
@@ -18,9 +19,12 @@
         "Crack Absent"
       ],
       "activation_func": "softmax",
-      "loss_func": "binary_crossentropy",
-      "": {}
+      "loss_func": "binary_crossentropy"
     }
   },
-  "time_format_str": "%Y-%m-%d"
+  "time_format_str": "%Y-%m-%d",
+  "img_path": "../",
+  "saved_model_path": "../trained_models",
+  "img_width": 100,
+  "img_height": 100
 }

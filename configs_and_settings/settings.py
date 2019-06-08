@@ -14,5 +14,5 @@ class Settings:
         return top_setting_keys
 
 
-general_settings = Settings(os.path.join(os.path.dirname(os.path.realpath(__file__)), "general_settings.json"))
+general_settings_obj = Settings(os.path.join(os.path.dirname(os.path.realpath(__file__)), "general_settings.json"))
 

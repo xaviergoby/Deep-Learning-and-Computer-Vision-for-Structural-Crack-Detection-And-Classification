@@ -9,10 +9,12 @@ from keras.models import load_model
 from keras.preprocessing import image
 import numpy as np
 import matplotlib.pyplot as plt
-
-
-img_path = '../Data/Test/Large/Crack__20180419_13_29_14,846.bmp' # Relative path of an image in the Test folder which you would like to test
-model_path = '../trained_models/TrainedModel_elu.h5' # The path of the saved (trained) model
+# Data/Test/Large/Crack__20180419_13_29_14,846.bmp
+# Data/Test/Medium/Crack__20180419_06_19_59,025.bmp
+# saved_trained_models/TrainedModel_elu.h5
+# img_path = '../Data/Test/Large/Crack__20180419_13_29_14,846.bmp' # Relative path of an image in the Test folder which you would like to test
+img_path = '../Data/Test/Medium/Crack__20180419_06_19_59,025.bmp' # Relative path of an image in the Test folder which you would like to test
+model_path = '../saved_trained_models/TrainedModel_elu.h5' # The path of the saved (trained) model
 classlabelmsgs = ['A large crack is present in the image','A medium crack is present in the image',
                   'No crack is present in the image','A small crack is present in the image']
 classlabels = ['Large','Medium','None','Small']

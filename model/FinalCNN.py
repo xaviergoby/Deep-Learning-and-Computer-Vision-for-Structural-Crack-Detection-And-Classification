@@ -114,7 +114,7 @@ model.summary()
 
 
 model.save_weights('../saved_weights/saved_weights_{0}.h5'.format(datetime.today().strftime("%Y-%m-%d")))
-model.save('../trained_models/trained_model_{0}.h5'.format(datetime.today().strftime("%Y-%m-%d")))
+model.save('../saved_trained_models/trained_model_{0}.h5'.format(datetime.today().strftime("%Y-%m-%d")))
 
 ################Plotting Performance: Accuracy and Loss of Trainning and Validation###############
 
