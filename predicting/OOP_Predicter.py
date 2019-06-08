@@ -42,25 +42,47 @@ class PredictionProducer:
         return class_probs_pct
 
     def display_all_pred_prob_pcts(self):
+        trailing_symbol = "|"
         prob_pct = self.make_prediction()
         for pred_label_idx in range(len(self.prob_type["class_label_names"])):
             pred_prob = str(round(prob_pct[0][pred_label_idx], 1))
-            print("{0}: {1}%".format(self.prob_type["class_label_names"][pred_label_idx],
-                                     pred_prob))
+            output_msg = "{0}: {1} %".format(self.prob_type["class_label_names"][pred_label_idx],
+                                     pred_prob)
+            print(output_msg, " "*(57-len(output_msg)), trailing_symbol)
+            # print("{0}: {1}%".format(self.prob_type["class_label_names"][pred_label_idx],
+            #                          pred_prob))
 
     def pred_result_display_msg(self):
+        trailing_symbol = "|"
         predicted_class_label_idx = self.model.predict_classes(self.img_transformer())
         # prob_type = self.general_settings["classification_problem_type"]["categorical"]
         predicted_class_label_idx = int(predicted_class_label_idx)
         pred_label_name = self.prob_type["class_label_names"][predicted_class_label_idx]
         prob_pct = self.make_prediction()
         pred_prob = str(round(prob_pct[0][predicted_class_label_idx], 1))
-        pred_pct_msg = "Predicted a {0} with a probability of {1}%".format(pred_label_name, pred_prob)
-        print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-        print(pred_pct_msg)
-        print("\nPercentage probabilities of all class labels:")
+        # pred_pct_msg = "Predicted a {0} with a probability of {1}%".format(pred_label_name, pred_prob)
+        pred_label_msg = "Type of crack present predicted: {0}".format(pred_label_name)
+        pred_pct_msg = "Prediction probability[%]: {0} %".format(pred_prob)
+        all_preds_header_msg = "Probabilities of all crack type predictions:"
+        true_crack_class_label_msg = "The true crack type class label is: {0}".format(self.get_tre_crack_class_label())
+        pred_res_msg = "Crack type class label prediction result: {0}".format(self.get_tre_crack_class_label() == pred_label_name)
+        # THIS IS IT DUDE: print(msg, " "*(50-len(msg2)), "*")
+        print("Prediction result message:")
+        print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ |")
+        print(true_crack_class_label_msg, " "*(57-len(true_crack_class_label_msg)), trailing_symbol)
+        print(pred_label_msg, " "*(57-len(pred_label_msg)), trailing_symbol)
+        print(pred_label_msg, " "*(57-len(pred_label_msg)), trailing_symbol)
+        print(pred_res_msg, " "*(57-len(pred_res_msg)), trailing_symbol)
+        print(pred_pct_msg, " "*(57-len(pred_pct_msg)), trailing_symbol)
+        print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ |")
+        print(all_preds_header_msg, " "*(57-len(all_preds_header_msg)), trailing_symbol)
         self.display_all_pred_prob_pcts()
-        print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ |")
+
+    def get_tre_crack_class_label(self):
+        all_crack_type_class_labels = self.prob_type["class_label_names"]
+        return list(set(all_crack_type_class_labels).intersection(self.img_full_rel_pth.split("/")))[0]
+
 
 
 

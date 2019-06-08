@@ -4,10 +4,10 @@
     "categorical": {
       "num_of_classes": 4,
       "class_label_names": [
-        "Large Crack",
-        "Medium Crack",
-        "No Crack",
-        "Small Crack"
+        "Large",
+        "Medium",
+        "No",
+        "Small"
       ],
       "activation_func": "sigmoid",
       "loss_func": "categorical_crossentropy"
@@ -24,7 +24,7 @@
   },
   "time_format_str": "%Y-%m-%d",
   "img_path": "../",
-  "saved_model_path": "../trained_models",
+  "saved_model_path": "../saved_trained_models",
   "img_width": 100,
   "img_height": 100
 }

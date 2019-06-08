@@ -2,11 +2,10 @@
 
 ###
 ## Contents
-
-1. General Information  
 1. [General Information](#gen_info)
+2. [Abstract](#abstract)
+3. [Usage Guide](#abstract)
 
-## General Information
 ## General Information <a name="gen_info"></a>
 
 
@@ -22,7 +21,7 @@
 
 * Department: Aerospace Non-Destructive Testing Laboratory | Structural Integrity and Composites Group
 
-## Abstract
+## Abstract <a name="abstract"></a>
 
 Narrow artificial intelligence, commonly referred as ‘weak AI’ in the last
 couple years, has developed due to advances in machine learning (ML), particularly
@@ -53,12 +52,8 @@ domain knowledge and the biased learning achieved a validation accuracy of
 parameter of sunlight intensity, however with 99.45% accuracy.
 
 
-## Title
+## Usage Guide <a name="usage_guide"></a>
 
-### Place 1
-
-Hello, this is some text to fill in this, [here](#place-2), is a link to the second place.
-
-### Place 2
-
-Place one has the fun times of linking here, but I can also link back [here](#place-1).
+The very first thing to do in order to test out and witness the prediction-making performance,
+presented and discussed in the conference research paper, is as simple as just running the 
+OOP_Predicter.py script! 
