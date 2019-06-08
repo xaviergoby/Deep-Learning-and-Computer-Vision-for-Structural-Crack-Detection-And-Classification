@@ -1,5 +1,15 @@
 # Application of Deep Learning (CNN's) to the Detection and Classification of Cracks in an Aircraft Panel
 
+###
+## Contents
+
+1. General Information  
+1. [General Information](#gen_info)
+
+## General Information
+## General Information <a name="gen_info"></a>
+
+
 * ResearchGate Link: https://www.researchgate.net/publication/328334741_Incorporating_Inductive_Bias_into_Deep_Learning_A_Perspective_from_Automated_Visual_Inspection_in_Aircraft_Maintenance
 
 * Conference paper title: *Incorporating Inductive Bias into Deep Learning: A Perspective from Automated Visual Inspection in Aircraft Maintenance, Dresden, Germany*
@@ -41,3 +51,14 @@ this network were then compared to the same network that was not trained with
 domain knowledge and the biased learning achieved a validation accuracy of
 97.55% on determining crack length, while unbiased network selected the unwanted
 parameter of sunlight intensity, however with 99.45% accuracy.
+
+
+## Title
+
+### Place 1
+
+Hello, this is some text to fill in this, [here](#place-2), is a link to the second place.
+
+### Place 2
+
+Place one has the fun times of linking here, but I can also link back [here](#place-1).
