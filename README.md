@@ -1,4 +1,4 @@
-# Application of Deep Learning (CNN's) to the Detection and Classification of Cracks in an Aircraft Panel
+# Application of Deep Learning (CNN's) for the Detection and Classification of Cracks Present in an Aircraft Panel
 
 ###
 ## Contents
